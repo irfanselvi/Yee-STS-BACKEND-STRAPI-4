@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quizzes",
+  "info": {
+    "singularName": "quiz",
+    "pluralName": "quizzes",
+    "displayName": "Quiz",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "time": {
+      "type": "integer"
+    },
+    "question_set": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question-set.question-set",
+      "inversedBy": "quizzes"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "quizzes"
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "quiz"
+    },
+    "cryptic": {
+      "type": "string"
+    },
+    "isKeyboard": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

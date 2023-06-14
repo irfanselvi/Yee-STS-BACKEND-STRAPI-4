@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quiz_states",
+  "info": {
+    "singularName": "quiz-state",
+    "pluralName": "quiz-states",
+    "displayName": "Quiz State",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quiz": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quiz.quiz"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
+    }
+  }
+}

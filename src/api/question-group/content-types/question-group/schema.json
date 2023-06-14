@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "question_groups",
+  "info": {
+    "singularName": "question-group",
+    "pluralName": "question-groups",
+    "displayName": "QuestionGroup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "questionset": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question-set.question-set",
+      "mappedBy": "questiongrup"
+    },
+    "question_sets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question-set.question-set",
+      "mappedBy": "question_groups"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "question_group"
+    },
+    "questiontext": {
+      "type": "richtext"
+    },
+    "audio": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "list_no": {
+      "type": "string"
+    },
+    "listeningCount": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "MultipleChoice",
+        "GapFilling",
+        "OpenEnded",
+        "TrueFalse",
+        "Matching"
+      ]
+    },
+    "questionCount": {
+      "type": "integer"
+    },
+    "skill": {
+      "type": "enumeration",
+      "enum": [
+        "reading",
+        "listening",
+        "writing"
+      ]
+    }
+  }
+}

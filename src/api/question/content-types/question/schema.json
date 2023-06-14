@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question-group.question-group",
+      "inversedBy": "questions"
+    },
+    "question": {
+      "type": "text"
+    },
+    "a": {
+      "type": "text"
+    },
+    "b": {
+      "type": "text"
+    },
+    "c": {
+      "type": "text"
+    },
+    "d": {
+      "type": "text"
+    },
+    "e": {
+      "type": "text"
+    },
+    "answer": {
+      "type": "enumeration",
+      "enum": [
+        "NoAnswer",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "question"
+    },
+    "score": {
+      "type": "decimal"
+    }
+  }
+}

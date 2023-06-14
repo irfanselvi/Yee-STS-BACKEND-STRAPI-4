@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "question_sets",
+  "info": {
+    "singularName": "question-set",
+    "pluralName": "question-sets",
+    "displayName": "Question Set",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "quizzes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz.quiz",
+      "mappedBy": "question_set"
+    },
+    "questiongrup": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question-group.question-group",
+      "inversedBy": "questionset"
+    },
+    "question_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question-group.question-group",
+      "inversedBy": "question_sets"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

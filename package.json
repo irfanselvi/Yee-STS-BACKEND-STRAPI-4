@@ -1,0 +1,33 @@
+{
+  "name": "yee-sts-backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.10.7",
+    "@strapi/plugin-users-permissions": "4.10.7",
+    "@strapi/strapi": "4.10.7",
+    "bcrypt": "^5.1.0",
+    "better-sqlite3": "8.0.1",
+    "nodemailer": "^6.9.3",
+    "pg": "^8.11.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "4e0e2053-3048-4ae1-9c61-3524340c4a38"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
