@@ -352,7 +352,7 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
                             // });
                             let answer = null;
                             let userAnswerresult = userAnswerAll.find(xx => xx.question.id == questionId);
-                            answer = userAnswerresult.len ? userAnswerresult : null;
+                            answer = userAnswerresult ? userAnswerresult : null;
                             let data = {
                                 id: question_group.questions[i].id,
                                 question: question_group.questions[i].question,
@@ -482,6 +482,9 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
 
     async createcustom(ctx) {
         let entity;
+        
+        let reqdata = ctx.request.body 
+        reqdata.published_at = data
         entity = await strapi.entityService.create('api::quiz.quiz', { data: ctx.request.body });
         const quiz = {
             id: entity.id,
