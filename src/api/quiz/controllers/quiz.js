@@ -484,7 +484,6 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
         let entity;
         
         let reqdata = ctx.request.body 
-        reqdata.published_at = data
         entity = await strapi.entityService.create('api::quiz.quiz', { data: ctx.request.body });
         const quiz = {
             id: entity.id,
@@ -592,7 +591,7 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
         let entities;
         let count;
         const now = new Date;
-        now.setHours(now.getHours() + 3);
+        now.setHours(now.getHours()+3);
 
         if (ctx.query.status === 'active') {
             entities = await strapi.query('api::quiz.quiz').findMany(
@@ -616,6 +615,7 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
                     populate: true,
                 },
             );
+          
             count = await strapi.query('api::quiz.quiz').count(
                 {
                     where: {
@@ -724,6 +724,7 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
                     populate: true,
                 },
             );
+            // console.log(entities)
             count = await strapi.query('api::quiz.quiz').count(
                 {
                     where: {
@@ -770,6 +771,11 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
                     statusCode: 1,
                     status: "Aktif Sınav"
                 });
+                console.log(item.startDate)
+                var d = new Date(item.startDate);
+                console.log(d.getUTCHours()); // Hours
+                console.log(d.getUTCMinutes());
+                console.log(d.getUTCSeconds());
             }
             else {
                 list.push({

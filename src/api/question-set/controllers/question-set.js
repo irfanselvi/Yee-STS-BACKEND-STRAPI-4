@@ -311,7 +311,7 @@ module.exports = createCoreController('api::question-set.question-set', ({ strap
     
     async copy(ctx) {
         const {id, title} = ctx.request.body;
-        const copyEntity = await strapi.query('api::question-set.question-set').findOne({id});
+        const copyEntity = await strapi.query('api::question-set.question-set').findOne({where: {id:id}, populate: true});
         // const copyEntity = await strapi.services['question-set'].findOne({id});
     
         const data = {
